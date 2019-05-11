@@ -24,12 +24,7 @@ public class QuestionController {
     }
     @GetMapping(path = "/detail")
     public @ResponseBody
-    QuestionData getQuestionById(){
-        return null;
-    }
-    @GetMapping(path = "/author")
-    public @ResponseBody
-    List<Question> getQuestionByAuthorID(@RequestParam int author){
-        return questionRepository.findAllByAuthorId(author);
+    QuestionData getQuestionById(@RequestParam int id){
+        return questionService.getQuestionByID(id);
     }
 }

@@ -2,18 +2,29 @@ package com.killmytime.testmakerserver.service.Impl;
 
 import com.killmytime.testmakerserver.domain.Paper;
 import com.killmytime.testmakerserver.domain.PaperRepository;
+import com.killmytime.testmakerserver.domain.QuestionData;
+import com.killmytime.testmakerserver.domain.QuestionRepository;
 import com.killmytime.testmakerserver.service.PaperService;
+import com.killmytime.testmakerserver.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class PaperServiceImpl implements PaperService {
     @Autowired
     PaperRepository paperRepository;
+    @Autowired
+    QuestionService questionService;
     @Override
-    public Paper getPaperById(int id) {
-        return paperRepository.getPaperById(id);
+    public List<QuestionData> getPaperById(int id) {
+        String questionIds=paperRepository.getPaperById(id).getQuestionIds();
+        String str[]=questionIds.split(",");
+        List<QuestionData> questionData=new ArrayList<>();
+        for (String index:str)
+            questionData.add(questionService.getQuestionByID(Integer.parseInt(index)));
+        return questionData;
     }
 
     @Override
