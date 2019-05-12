@@ -22,6 +22,7 @@ public class QuestionServiceImpl implements QuestionService {
     QuestionChoiceRepository questionChoiceRepository;
 
     private QuestionData questionToQuestionData(Question question){
+        if (question==null) return null;
         QuestionData questionData=new QuestionData();
         questionData.setId(question.getId());
         questionData.setCreated_on(question.getCreatedOn().toString());

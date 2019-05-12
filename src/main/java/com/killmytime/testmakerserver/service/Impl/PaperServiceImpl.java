@@ -20,7 +20,7 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public List<QuestionData> getPaperById(int id) {
         String questionIds=paperRepository.getPaperById(id).getQuestionIds();
-        String str[]=questionIds.split(",");
+        String[] str = questionIds.split(",");
         List<QuestionData> questionData=new ArrayList<>();
         for (String index:str)
             questionData.add(questionService.getQuestionByID(Integer.parseInt(index)));
