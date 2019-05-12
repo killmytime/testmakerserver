@@ -1,6 +1,7 @@
 package com.killmytime.testmakerserver.web;
 
 import com.killmytime.testmakerserver.domain.Paper;
+import com.killmytime.testmakerserver.domain.QuestionData;
 import com.killmytime.testmakerserver.service.PaperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class paperController {
     }
     @GetMapping(path = "/get_one")
     public @ResponseBody
-    Paper getPaperByOne(@RequestParam int id){
+    List<QuestionData> getPaperByOne(@RequestParam int id){
         return paperService.getPaperById(id);
     }
     @GetMapping(path = "/modify")
