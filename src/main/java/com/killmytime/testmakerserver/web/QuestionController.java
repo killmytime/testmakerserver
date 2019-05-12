@@ -8,7 +8,6 @@ import com.killmytime.testmakerserver.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping(path = "/question")
@@ -19,9 +18,7 @@ public class QuestionController {
     QuestionService questionService;
     @GetMapping(path = "/all")
     public @ResponseBody
-    List<QuestionData> getQuestions() {
-        return questionService.getAllQuestions();
-    }
+    Iterable<Question> getQuestions(){return questionRepository.findAll();}
     @GetMapping(path = "/detail")
     public @ResponseBody
     QuestionData getQuestionById(@RequestParam int id){

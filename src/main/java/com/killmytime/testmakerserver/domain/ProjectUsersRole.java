@@ -4,10 +4,11 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "project_users_role", schema = "testmaker")
+@Table(name = "project_users_role", schema = "testmaker", catalog = "")
 public class ProjectUsersRole {
     private int projectUserId;
     private int roleId;
+    private String id;
 
     @Basic
     @Column(name = "project_user_id")
@@ -43,9 +44,9 @@ public class ProjectUsersRole {
         return Objects.hash(projectUserId, roleId);
     }
 
-    private String id;
-
+    @Basic
     @Id
+    @Column(name = "id")
     public String getId() {
         return id;
     }

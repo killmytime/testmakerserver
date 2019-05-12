@@ -1,6 +1,5 @@
 package com.killmytime.testmakerserver.service;
 
-import com.killmytime.testmakerserver.domain.Question;
 import com.killmytime.testmakerserver.domain.QuestionData;
 import org.springframework.stereotype.Service;
 

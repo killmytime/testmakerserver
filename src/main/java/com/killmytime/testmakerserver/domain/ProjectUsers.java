@@ -1,14 +1,11 @@
 package com.killmytime.testmakerserver.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "project_users", schema = "testmaker")
+@Table(name = "project_users", schema = "testmaker", catalog = "")
 public class ProjectUsers {
     private int projectId;
     private int userId;
@@ -36,7 +33,7 @@ public class ProjectUsers {
         this.userId = userId;
     }
 
-    @javax.persistence.Id
+    @Id
     @Basic
     @Column(name = "id")
     public int getId() {

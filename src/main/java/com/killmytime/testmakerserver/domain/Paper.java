@@ -9,7 +9,7 @@ import java.util.Objects;
 @Entity
 public class Paper {
     private int id;
-    private Integer paperName;
+    private String paperName;
     private String questionIds;
 
     @Id
@@ -24,11 +24,11 @@ public class Paper {
 
     @Basic
     @Column(name = "paper_name")
-    public Integer getPaperName() {
+    public String getPaperName() {
         return paperName;
     }
 
-    public void setPaperName(Integer paperName) {
+    public void setPaperName(String paperName) {
         this.paperName = paperName;
     }
 

@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "review_comment", schema = "testmaker")
+@Table(name = "review_comment", schema = "testmaker", catalog = "")
 public class ReviewComment {
     private int id;
     private Timestamp createdOn;
