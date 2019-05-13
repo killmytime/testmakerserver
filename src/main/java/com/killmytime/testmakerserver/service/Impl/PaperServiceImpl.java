@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class PaperServiceImpl implements PaperService {
     @Autowired
     PaperRepository paperRepository;
     @Autowired
     QuestionService questionService;
+
     @Override
     public List<QuestionData> getPaperById(int id) {
         String questionIds;
@@ -33,6 +35,7 @@ public class PaperServiceImpl implements PaperService {
         }
 
     }
+
     @Override
     public List<Paper> getAllPapers() {
         return (List<Paper>) paperRepository.findAll();
@@ -45,7 +48,8 @@ public class PaperServiceImpl implements PaperService {
 
     @Override
     public Paper modifyPaper(Paper paper) {
-        Paper paper0=paperRepository.getPaperById(paper.getId());
+        Paper paper0 = paperRepository.getPaperById(paper.getId());
+        if (paper0 == null) return null;
         paper0.setPaperName(paper.getPaperName());
         paper0.setQuestionIds(paper.getQuestionIds());
         return paperRepository.save(paper0);
