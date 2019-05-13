@@ -14,9 +14,9 @@ import java.util.List;
 public class paperController {
     @Autowired
     PaperService paperService;
-    @GetMapping(path = "/generate")
+    @PostMapping(path = "/generate")
     public @ResponseBody
-    Paper generatePaper(@RequestBody Paper paper){
+    Paper generatePaper(@Valid Paper paper){
         return paperService.generatePaper(paper);
     }
     @GetMapping(path = "/all")

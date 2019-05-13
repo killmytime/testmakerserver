@@ -1,13 +1,11 @@
 package com.killmytime.testmakerserver.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Paper {
+@Table(name = "paper", schema = "testmaker")
+public class  Paper {
     private int id;
     private String paperName;
     private String questionIds;
